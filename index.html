@@ -1,288 +1,348 @@
-​<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>九份金瓜石自駕一日遊 - 山城漫遊指南</title>
-<style>
-:root {
---bg-main: #fcf9f2;
---bg-card: #ffffff;
---bg-box: #f7f3eb;
---text-primary: #3d3a37;
---text-muted: #7c756e;
---accent-sage: #5a7361;
---accent-warm-wood: #8c6d58;
---accent-soft-red: #c26d60;
---border-color: #e6dfd5;
---shadow-soft: rgba(90, 80, 70, 0.06);
-}
-​* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
-​body {
-background-color: var(--bg-main);
-color: var(--text-primary);
-font-family: "PingFang TC", "Noto Serif TC", "Microsoft JhengHei", serif;
-line-height: 1.85;
-padding: 40px 20px;
-max-width: 850px;
-margin: 0 auto;
-background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #fcf9f2 70%);
-background-attachment: fixed;
-}
-​header h1 {
-color: var(--accent-warm-wood);
-text-align: center;
-font-size: 1.9rem;
-font-weight: 600;
-border-bottom: 2px dashed #dcd4c7;
-padding-bottom: 16px;
-margin-bottom: 12px;
-letter-spacing: 1.5px;
-}
-​.subtitle {
-text-align: center;
-color: var(--text-muted);
-font-size: 0.92rem;
-margin-bottom: 32px;
-letter-spacing: 0.5px;
-}
-​.intro-notice {
-background: #f4ede2;
-border-left: 4px solid var(--accent-sage);
-padding: 16px 20px;
-border-radius: 8px;
-margin-bottom: 35px;
-font-size: 0.92rem;
-color: var(--text-primary);
-box-shadow: 0 4px 12px var(--shadow-soft);
-}
-​.spot-card {
-background: var(--bg-card);
-border: 1px solid var(--border-color);
-border-radius: 12px;
-padding: 28px;
-margin-bottom: 32px;
-box-shadow: 0 8px 20px var(--shadow-soft);
-position: relative;
-overflow: hidden;
-transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-​.spot-card:hover {
-transform: translateY(-2px);
-box-shadow: 0 12px 24px rgba(90, 80, 70, 0.1);
-}
-​.spot-card::before {
-content: "🏮";
-position: absolute;
-top: 20px;
-right: 24px;
-font-size: 1.3rem;
-opacity: 0.8;
-animation: gentle-glow 3s ease-in-out infinite alternate;
-pointer-events: none;
-}
-​.time-badge {
-display: inline-block;
-background-color: var(--bg-box);
-color: var(--accent-sage);
-font-weight: 600;
-font-size: 0.85rem;
-padding: 4px 12px;
-border-radius: 20px;
-border: 1px solid var(--border-color);
-margin-bottom: 12px;
-}
-​.spot-card h2 {
-color: var(--accent-warm-wood);
-font-size: 1.35rem;
-font-weight: 600;
-margin-bottom: 12px;
-border-bottom: 1px solid var(--border-color);
-padding-bottom: 8px;
-padding-right: 30px;
-}
-​.spot-illustration {
-width: 100%;
-height: 180px;
-background-size: cover;
-background-position: center;
-border-radius: 8px;
-margin: 14px 0 16px 0;
-border: 1px solid var(--border-color);
-position: relative;
-display: flex;
-align-items: flex-end;
-filter: saturate(0.9);
-}
-​.spot-illustration .caption {
-background: rgba(255, 255, 255, 0.88);
-color: var(--text-primary);
-backdrop-filter: blur(4px);
-width: 100%;
-padding: 6px 14px;
-font-size: 0.85rem;
-border-bottom-left-radius: 7px;
-border-bottom-right-radius: 7px;
-border-top: 1px solid rgba(230, 223, 213, 0.5);
-}
-​strong {
-color: var(--accent-soft-red);
-font-weight: 600;
-}
-​.nav-btn {
-display: inline-block;
-background-color: var(--accent-sage);
-color: #ffffff !important;
-text-decoration: none;
-padding: 10px 20px;
-border-radius: 8px;
-font-weight: 500;
-margin: 12px 0 4px 0;
-transition: all 0.25s ease;
-box-shadow: 0 2px 6px rgba(90, 115, 97, 0.2);
-letter-spacing: 0.5px;
-font-size: 0.92rem;
-}
-​.nav-btn:hover, .nav-btn:focus {
-background-color: #485c4e;
-color: #ffffff !important;
-box-shadow: 0 4px 12px rgba(90, 115, 97, 0.3);
-transform: translateY(-1px);
-outline: none;
-}
-​.parking-box {
-background: var(--bg-box);
-padding: 16px;
-border-radius: 8px;
-margin-top: 16px;
-border: 1px dashed var(--border-color);
-}
-​.parking-box .nav-btn {
-display: block;
-text-align: center;
-margin-bottom: 10px;
-background-color: var(--accent-warm-wood);
-box-shadow: 0 2px 6px rgba(140, 109, 88, 0.2);
-}
-​.parking-box .nav-btn:hover, .parking-box .nav-btn:focus {
-background-color: #735744;
-box-shadow: 0 4px 12px rgba(140, 109, 88, 0.3);
-}
-​.parking-box .nav-btn:last-child {
-margin-bottom: 0;
-}
-​.copyright {
-color: var(--text-muted);
-font-size: 0.75rem;
-margin-top: 14px;
-display: block;
-border-top: 1px solid var(--border-color);
-padding-top: 8px;
-}
-​@keyframes gentle-glow {
-from {
-opacity: 0.6;
-transform: scale(1);
-}
-to {
-opacity: 1;
-transform: scale(1.05);
-}
-}
-​@media (max-width: 600px) {
-body {
-padding: 20px 14px;
-}
-header h1 {
-font-size: 1.5rem;
-}
-.spot-card {
-padding: 20px 16px;
-}
-.nav-btn {
-width: 100%;
-text-align: center;
-}
-.spot-illustration {
-height: 140px;
-}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九份金瓜石自駕一日遊 - 山城漫遊指南</title>
+    <style>
+        :root {
+            --bg-main: #fcf9f2;
+            --bg-card: #ffffff;
+            --bg-box: #f7f3eb;
+            --text-primary: #3d3a37;
+            --text-muted: #7c756e;
+            --accent-sage: #5a7361;
+            --accent-warm-wood: #8c6d58;
+            --accent-soft-red: #c26d60;
+            --border-color: #e6dfd5;
+            --shadow-soft: rgba(90, 80, 70, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: "PingFang TC", "Noto Serif TC", "Microsoft JhengHei", serif;
+            line-height: 1.85;
+            padding: 40px 20px;
+            max-width: 850px;
+            margin: 0 auto;
+            background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, #fcf9f2 70%);
+            background-attachment: fixed;
+        }
+
+        header h1 {
+            color: var(--accent-warm-wood);
+            text-align: center;
+            font-size: 1.9rem;
+            font-weight: 600;
+            border-bottom: 2px dashed #dcd4c7;
+            padding-bottom: 16px;
+            margin-bottom: 12px;
+            letter-spacing: 1.5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            margin-bottom: 32px;
+            letter-spacing: 0.5px;
+        }
+
+        .intro-notice {
+            background: #f4ede2;
+            border-left: 4px solid var(--accent-sage);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+            box-shadow: 0 4px 12px var(--shadow-soft);
+        }
+
+        .spot-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 20px var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .spot-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(90, 80, 70, 0.1);
+        }
+
+        .spot-card::before {
+            content: "🏮";
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-size: 1.3rem;
+            opacity: 0.8;
+            animation: gentle-glow 3s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background-color: var(--bg-box);
+            color: var(--accent-sage);
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 12px;
+        }
+
+        .spot-card h2 {
+            color: var(--accent-warm-wood);
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            padding-right: 30px;
+        }
+
+        .spot-illustration {
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin: 14px 0 16px 0;
+            border: 1px solid var(--border-color);
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            filter: saturate(0.9);
+        }
+
+        .spot-illustration .caption {
+            background: rgba(255, 255, 255, 0.88);
+            color: var(--text-primary);
+            backdrop-filter: blur(4px);
+            width: 100%;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            border-bottom-left-radius: 7px;
+            border-bottom-right-radius: 7px;
+            border-top: 1px solid rgba(230, 223, 213, 0.5);
+        }
+
+        strong {
+            color: var(--accent-soft-red);
+            font-weight: 600;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            background-color: var(--accent-sage);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            margin: 12px 0 4px 0;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(90, 115, 97, 0.2);
+            letter-spacing: 0.5px;
+            font-size: 0.92rem;
+        }
+
+        .nav-btn:hover, .nav-btn:focus {
+            background-color: #485c4e;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(90, 115, 97, 0.3);
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        .parking-box {
+            background: var(--bg-box);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+            border: 1px dashed var(--border-color);
+        }
+
+        .parking-box .nav-btn {
+            display: block;
+            text-align: center;
+            margin-bottom: 10px;
+            background-color: var(--accent-warm-wood);
+            box-shadow: 0 2px 6px rgba(140, 109, 88, 0.2);
+        }
+
+        .parking-box .nav-btn:hover, .parking-box .nav-btn:focus {
+            background-color: #735744;
+            box-shadow: 0 4px 12px rgba(140, 109, 88, 0.3);
+        }
+
+        .parking-box .nav-btn:last-child {
+            margin-bottom: 0;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-top: 14px;
+            display: block;
+            border-top: 1px solid var(--border-color);
+            padding-top: 8px;
+        }
+
+        @keyframes gentle-glow {
+            from {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 14px;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .spot-card {
+                padding: 20px 16px;
+            }
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+            .spot-illustration {
+                height: 140px;
+            }
+        }
+    </style>
 </head>
 <body>
-​<header>
-<h1>🏮 九份金瓜石自駕一日遊．山城漫遊指南</h1>
-<p class="subtitle">正午 12:00 啟程 ‧ 輕旅行 ‧ 停車資訊 ‧ 地圖隨選即導</p>
-</header>
-​<main>
-<aside class="intro-notice" aria-label="行前叮嚀">
-<strong>貼心提醒：</strong> 暮色山城石階較為濕滑，建議穿著<strong>防滑休閒鞋</strong>並隨身攜帶<strong>輕便雨具</strong>，享受舒適愉悅的山城之旅。（行程參考遠東百貨專欄資訊整理）
-</aside>
-​<article class="spot-card">
-<span class="time-badge">⏰ 12:00 - 13:30</span>
-<h2>1. 甜蜜屋 Home Sweet Home (異國午餐)</h2>
-<div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('[https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80)');">
-<div class="caption">🍕 招牌墨魚披薩與加拿大風味美味料理</div>
-</div>
-<p>地址：新北市瑞芳區洞頂路155-3號。推薦<strong>墨魚披薩</strong>與西式手作甜點，料理風味獨特，假日建議提前預約訂位。</p>
-<p><strong>🅿️ 停車指引：</strong>建議直接停放至山腳下的「水湳洞停車場」，停妥後沿步道步行約 3-5 分鐘即可抵達餐廳。</p>
-<a href="[https://www.google.com/maps/search/?api=1&query=水湳洞免費停車場](https://www.google.com/maps/search/?api=1&query=水湳洞免費停車場)" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：水湳洞停車場</a>
-<footer class="copyright">版權聲明：文字與圖片權利歸甜蜜屋官方粉專所有。</footer>
-</article>
-​<article class="spot-card">
-<span class="time-badge">⏰ 13:30 - 14:15</span>
-<h2>2. 濂洞國小 (海景階梯散步)</h2>
-<div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('[https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80)');">
-<div class="caption">🌊 兩層樓溜滑梯與直通大海的懷舊階梯</div>
-</div>
-<p>校內設有兩層樓高的特色溜滑梯，操場更可遠眺廣闊海景與獨特的<strong>陰陽海</strong>景色。從甜蜜屋旁步道向上步行 5 分鐘即可抵達。</p>
-<p><strong>🅿️ 停車指引：</strong>車輛請<strong>繼續停放於水湳洞停車場</strong>即可，不需移車，步行前往相當便利。</p>
-<a href="[https://www.google.com/maps/search/?api=1&query=濂洞國小步道口](https://www.google.com/maps/search/?api=1&query=濂洞國小步道口)" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：濂洞國小步道口</a>
-<footer class="copyright">版權聲明：環境景觀權利歸濂洞國小官方所有。</footer>
-</article>
-​<article class="spot-card">
-<span class="time-badge">⏰ 14:15 - 14:45</span>
-<h2>3. Ample Villa 玻璃屋 (藍白打卡秘境)</h2>
-<div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('[https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80)');">
-<div class="caption">🏛️ 純白優雅建築襯託藍天大海</div>
-</div>
-<p>位於濂洞國小校門右手邊小路盡頭，純白色的簡約建築搭上藍天海景，是絕佳的攝影取景點。</p>
-<p><strong>🅿️ 停車指引：</strong>拍照停留後，請步行返回「水湳洞停車場」取車，準備開車前往下一個景點。</p>
-<a href="[https://www.google.com/maps/search/?api=1&query=Ample+Villa](https://www.google.com/maps/search/?api=1&query=Ample+Villa)" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：Ample Villa 周邊</a>
-<footer class="copyright">版權聲明：建築外觀權利歸Ample Villa民宿所有。</footer>
-</article>
-​<article class="spot-card">
-<span class="time-badge">⏰ 15:00 - 15:30</span>
-<h2>4. 黃金瀑布 (自駕快閃)</h2>
-<div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('[https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80)');">
-<div class="caption">💧 大自然雕琢出的金色瀑布景緻</div>
-</div>
-<p>因早期礦泉與金屬礦物氧化而形成的黃金瀑布奇景。景點位於路旁，建議安排 20-30 分鐘賞景拍照。</p>
-<p><strong>🅿️ 停車指引：</strong>瀑布正前方設有路邊臨時停車網格，請依序規範停放。</p>
-<a href="[https://www.google.com/maps/search/?api=1&query=黃金瀑布臨停區](https://www.google.com/maps/search/?api=1&query=黃金瀑布臨停區)" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：黃金瀑布臨停區</a>
-<footer class="copyright">版權聲明：地景權利歸新北市觀光旅遊網所有。</footer>
-</article>
-​<article class="spot-card">
-<span class="time-badge">⏰ 15:45 - 16:45</span>
-<h2>5. 祈堂老街 (山城靜謐漫步)</h2>
-<div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('[https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80)');">
-<div class="caption">🌈 繽紛彩虹階梯與電影《太平輪》取景地</div>
-</div>
-<p>保有寧靜氛圍的老街，擁有熱門拍照點<strong>「彩虹階梯」</strong>與古樸的柑仔店，漫步其中能感受到濃濃的山城懷舊氣息。</p>
-<p><strong>🅿️ 停車指引：</strong>建議將車輛駛至山頂的「勸濟堂停車場」，由此順著步道往下走進入老街，輕鬆省力。</p>
-<a href="[https://www.google.com/maps/search/?api=1&query=勸濟堂停車場](https://www.google.com/maps/search/?api=1&query=勸濟堂停車場)" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：勸濟堂停車場</a>
-<footer class="copyright">版權聲明：彩虹階梯與老街景觀權利歸新北市觀光旅遊網所有。</footer>
-</article>
-​<article class="spot-card">
-<span class="time-badge">⏰ 16:45 - 17:45</span>
-<h2>6. 黃金博物館 (金瓜石體驗)</h2>
-<div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('[https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80](https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80)');">
-<div class="caption">🪙 觸摸 220 公斤大金磚，遠眺茶壺山景</div>
-</div>
-<p>門票 80 元（新北市民出示證件免費）。可親手觸摸<strong>220公斤鎮館大金磚</strong>，園區內亦可遠眺形貌特殊的茶壺山美景。</p>
-<p><strong>🅿️ 停車指引：</strong>車輛<strong>請繼續停放於勸濟堂停車場</strong>，經由平緩連通道即可直接步行至博物館後方入口。</p>
-<a href="[https://www.google.com/maps/search/?api=1&query=新北市立黃金博物館](https://www.google.com/maps/search/?api=1&query=新北市立黃金博物館)" target="_blank" rel="noopener" class
+
+    <header>
+        <h1>🏮 九份金瓜石自駕一日遊．山城漫遊指南</h1>
+        <p class="subtitle">正午 12:00 啟程 ‧ 輕旅行 ‧ 停車資訊 ‧ 地圖隨選即導</p>
+    </header>
+
+    <main>
+        <aside class="intro-notice" aria-label="行前叮嚀">
+            <strong>貼心提醒：</strong> 暮色山城石階較為濕滑，建議穿著<strong>防滑休閒鞋</strong>並隨身攜帶<strong>輕便雨具</strong>，享受舒適愉悅的山城之旅。（行程參考遠東百貨專欄資訊整理）
+        </aside>
+
+        <!-- 景點 1 -->
+        <article class="spot-card">
+            <span class="time-badge">⏰ 12:00 - 13:30</span>
+            <h2>1. 甜蜜屋 Home Sweet Home (異國午餐)</h2>
+            <div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80');">
+                <div class="caption">🍕 招牌墨魚披薩與加拿大風味美味料理</div>
+            </div>
+            <p>地址：新北市瑞芳區洞頂路155-3號。推薦<strong>墨魚披薩</strong>與西式手作甜點，料理風味獨特，假日建議提前預約訂位。</p>
+            <p><strong>🅿️ 停車指引：</strong>建議直接停放至山腳下的「水湳洞停車場」，停妥後沿步道步行約 3-5 分鐘即可抵達餐廳。</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=水湳洞免費停車場" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：水湳洞停車場</a>
+            <footer class="copyright">版權聲明：文字與圖片權利歸甜蜜屋官方粉專所有。</footer>
+        </article>
+
+        <!-- 景點 2 -->
+        <article class="spot-card">
+            <span class="time-badge">⏰ 13:30 - 14:15</span>
+            <h2>2. 濂洞國小 (海景階梯散步)</h2>
+            <div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80');">
+                <div class="caption">🌊 兩層樓溜滑梯與直通大海的懷舊階梯</div>
+            </div>
+            <p>校內設有兩層樓高的特色溜滑梯，操場更可遠眺廣闊海景與獨特的<strong>陰陽海</strong>景色。從甜蜜屋旁步道向上步行 5 分鐘即可抵達。</p>
+            <p><strong>🅿️ 停車指引：</strong>車輛請<strong>繼續停放於水湳洞停車場</strong>即可，不需移車，步行前往相當便利。</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=濂洞國小步道口" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：濂洞國小步道口</a>
+            <footer class="copyright">版權聲明：環境景觀權利歸濂洞國小官方所有。</footer>
+        </article>
+
+        <!-- 景點 3 -->
+        <article class="spot-card">
+            <span class="time-badge">⏰ 14:15 - 14:45</span>
+            <h2>3. Ample Villa 玻璃屋 (藍白打卡秘境)</h2>
+            <div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80');">
+                <div class="caption">🏛️ 純白優雅建築襯託藍天大海</div>
+            </div>
+            <p>位於濂洞國小校門右手邊小路盡頭，純白色的簡約建築搭上藍天海景，是絕佳的攝影取景點。</p>
+            <p><strong>🅿️ 停車指引：</strong>拍照停留後，請步行返回「水湳洞停車場」取車，準備開車前往下一個景點。</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Ample+Villa" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：Ample Villa 周邊</a>
+            <footer class="copyright">版權聲明：建築外觀權利歸Ample Villa民宿所有。</footer>
+        </article>
+
+        <!-- 景點 4 -->
+        <article class="spot-card">
+            <span class="time-badge">⏰ 15:00 - 15:30</span>
+            <h2>4. 黃金瀑布 (自駕快閃)</h2>
+            <div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80');">
+                <div class="caption">💧 大自然雕琢出的金色瀑布景緻</div>
+            </div>
+            <p>因早期礦泉與金屬礦物氧化而形成的黃金瀑布奇景。景點位於路旁，建議安排 20-30 分鐘賞景拍照。</p>
+            <p><strong>🅿️ 停車指引：</strong>瀑布正前方設有路邊臨時停車網格，請依序規範停放。</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=黃金瀑布臨停區" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：黃金瀑布臨停區</a>
+            <footer class="copyright">版權聲明：地景權利歸新北市觀光旅遊網所有。</footer>
+        </article>
+
+        <!-- 景點 5 -->
+        <article class="spot-card">
+            <span class="time-badge">⏰ 15:45 - 16:45</span>
+            <h2>5. 祈堂老街 (山城靜謐漫步)</h2>
+            <div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80');">
+                <div class="caption">🌈 繽紛彩虹階梯與電影《太平輪》取景地</div>
+            </div>
+            <p>保有寧靜氛圍的老街，擁有熱門拍照點<strong>「彩虹階梯」</strong>與古樸的柑仔店，漫步其中能感受到濃濃的山城懷舊氣息。</p>
+            <p><strong>🅿️ 停車指引：</strong>建議將車輛駛至山頂的「勸濟堂停車場」，由此順著步道往下走進入老街，輕鬆省力。</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=勸濟堂停車場" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：勸濟堂停車場</a>
+            <footer class="copyright">版權聲明：彩虹階梯與老街景觀權利歸新北市觀光旅遊網所有。</footer>
+        </article>
+
+        <!-- 景點 6 -->
+        <article class="spot-card">
+            <span class="time-badge">⏰ 16:45 - 17:45</span>
+            <h2>6. 黃金博物館 (金瓜石體驗)</h2>
+            <div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80');">
+                <div class="caption">🪙 觸摸 220 公斤大金磚，遠眺茶壺山景</div>
+            </div>
+            <p>門票 80 元（新北市民出示證件免費）。可親手觸摸<strong>220公斤鎮館大金磚</strong>，園區內亦可遠眺形貌特殊的茶壺山美景。</p>
+            <p><strong>🅿️ 停車指引：</strong>車輛<strong>請繼續停放於勸濟堂停車場</strong>，經由平緩連通道即可直接步行至博物館後方入口。</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=新北市立黃金博物館" target="_blank" rel="noopener" class="nav-btn">📜 開啟地圖導航：黃金博物館區</a>
+            <footer class="copyright">版權聲明：園區設施與大黃金權利歸新北市立黃金博物館所有。</footer>
+        </article>
+
+        <!-- 景點 7 -->
+        <article class="spot-card">
+            <span class="time-badge">⏰ 18:15 - 20:30</span>
+            <h2>7. 九份老街 (溫馨夜景與美味晚餐)</h2>
+            <div class="spot-illustration" style="background-image: linear-gradient(rgba(255,255,255,0.1), rgba(0,0,0,0.1)), url('https://images.unsplash.com/photo-1528164344705-47542687990d?auto=format&fit=crop&w=800&q=80');">
+                <div class="caption">🏮 傍晚紅燈籠點亮山城，品嚐著名芋圓與魚羹</div>
+            </div>
+            <p>傍晚時分，當<strong>紅燈籠點亮山城</strong>，整座豎崎路階梯展現別緻的夜間風情。品嚐熱騰騰的阿柑姨芋圓與魚羹美食，欣賞遠方的夜海景致。</p>
+
+            <p style="margin-top: 16px;"><strong>🏮 自駕九份停車方案（依現場車流彈性選擇）：</strong></p>
+            <div class="parking-box">
+                <a href="https://www.google.com/maps/search/?api=1&query=隔頂停車場" target="_blank" rel="noopener" class="nav-btn">🅿️ 方案 A：隔頂公有停車場 (距離老街入口最近)</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=九份城隍廟停車場" target="_blank" rel="noopener" class="nav-btn">🅿️ 方案 B：九份城隍廟停車場 (老街中段備用)</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=臺陽停車場" target="_blank" rel="noopener" class="nav-btn">🅿️ 方案 C：臺陽停車場 (車位較多，需步行稍上坡)</a>
+            </div>
+            <footer class="copyright">版權聲明：景點資訊參考遠東百貨專欄，夜景地景權利歸交通部觀光署所有。</footer>
+        </article>
+    </main>
+
+</body>
+</html>
